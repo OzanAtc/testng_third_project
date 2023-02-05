@@ -63,25 +63,4 @@ public class Carvana_SearchCarPage extends Carvana_BasePage{
     public void routeToCars() {
         searchCarsLink.click();
     }
-
-    public void validateEachTile() {
-        IntStream.range(0, resultTiles.size()).forEach(i -> {
-            Assert.assertTrue(resultTiles.get(i).isDisplayed());
-            Assert.assertTrue(images_ResultTile.get(i).isDisplayed());
-            Assert.assertTrue(add_FavouriteButton_ResultTile.get(i).isDisplayed());
-            Assert.assertTrue(tileBody.get(i).isDisplayed());
-            Assert.assertNotNull(inventory_Type_Tiles.get(i).getText());
-            Assert.assertTrue(trimAndMileage.get(i).isDisplayed());
-            Assert.assertNotNull(trimAndMileage.get(i).getText());
-
-            Assert.assertTrue(Integer.parseInt(priceOfTiles.get(i).getText().replaceAll("[^0-9]", ""))
-                    > 0);
-
-            Assert.assertTrue(monthly_Down_Payments.get(i).isDisplayed());
-            Assert.assertNotNull(monthly_Down_Payments.get(i).getText());
-            Assert.assertTrue(deliveryChip.get(i).isDisplayed());
-            Assert.assertNotNull(deliveryChip.get(i).getText());
-
-        });
-    }
 }
