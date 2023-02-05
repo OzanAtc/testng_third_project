@@ -36,6 +36,27 @@ public class Carvana_SearchCarPage extends Carvana_BasePage{
     @FindBy(css = "div[class='result-tile'] svg")
     public List<WebElement> add_FavouriteButton_ResultTile;
 
+    @FindBy(css = "div[class='tk-frame middle-frame']")
+    public List<WebElement> tileBody;
+
+    @FindBy(css = "carvana-certified")
+    public List<WebElement> inventory_Type_Tiles;
+
+    @FindBy(css = "div[class='make-model']")
+    public List<WebElement> yearModelInfo_Tiles;
+
+    @FindBy(css = "div[class='trim-mileage']")
+    public List<WebElement> trimAndMileage;
+
+    @FindBy(css = "div[data-qa='price']")
+    public List<WebElement> priceOfTiles;
+
+    @FindBy(css = "div[data-qa='base-terms']")
+    public List<WebElement> monthly_Down_Payments;
+
+    @FindBy(css = "div[data-qa='shipping-cost']")
+    public List<WebElement> deliveryChip;
+
 
     public void routeToCars() {
         searchCarsLink.click();
