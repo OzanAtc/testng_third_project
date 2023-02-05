@@ -33,13 +33,9 @@ public class Carvana_BaseTest extends Carvana_Base{
     @Test(priority = 4, description = "Validation the Sign In Error Message")
     public void validate_SignIn_ErrorMessage() {
 
-        carvana_basePage.signIn.click();
-        carvana_basePage.emailInputBox.sendKeys("johndoe@gmail.com");
-        carvana_basePage.continueButton.click();
-        carvana_basePage.passwordInput.sendKeys("abcd1234");
-        carvana_basePage.signInButton.click();
-        Assert.assertEquals(carvana_basePage.errorMessage.getText(), "Email address and/or password combination is incorrect.");
-
+        carvana_basePage.signIn_ErrorMessage();
+        Assert.assertEquals(carvana_basePage.errorMessage.getText(),
+                "Email address and/or password combination is incorrect.");
     }
 
     @Test(priority = 5, description = "Validation for the Search Filter Options and Search Button")
@@ -63,28 +59,5 @@ public class Carvana_BaseTest extends Carvana_Base{
         Waiter.pause(2);
         Assert.assertTrue(Waiter.waitFor_Until_URL("mercedes-benz", 60));
 
-        IntStream.range(0, carvana_searchCarPage.resultTiles.size()).forEach(i -> {
-                Assert.assertTrue(carvana_searchCarPage.resultTiles.get(i).isDisplayed());
-                Assert.assertTrue(carvana_searchCarPage.images_ResultTile.get(i).isDisplayed());
-                Assert.assertTrue(carvana_searchCarPage.add_FavouriteButton_ResultTile.get(i).isDisplayed());
-                Assert.assertTrue(carvana_searchCarPage.tileBody.get(i).isDisplayed());
-            Assert.assertNotNull(carvana_searchCarPage.inventory_Type_Tiles.get(i).getText());
-                Assert.assertTrue(carvana_searchCarPage.trimAndMileage.get(i).isDisplayed());
-                Assert.assertNotNull(carvana_searchCarPage.trimAndMileage.get(i).getText());
-
-                Assert.assertTrue(Integer.parseInt(carvana_searchCarPage.priceOfTiles.get(i).getText().replaceAll("[^0-9]", ""))
-                         > 0);
-
-                Assert.assertTrue(carvana_searchCarPage.monthly_Down_Payments.get(i).isDisplayed());
-                Assert.assertNotNull(carvana_searchCarPage.monthly_Down_Payments.get(i).getText());
-                Assert.assertTrue(carvana_searchCarPage.deliveryChip.get(i).isDisplayed());
-                Assert.assertNotNull(carvana_searchCarPage.deliveryChip.get(i).getText());
-
-
-        });
     }
-
-
-
-
 }

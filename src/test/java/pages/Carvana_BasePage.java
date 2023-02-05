@@ -39,4 +39,13 @@ public class Carvana_BasePage {
     @FindBy(css = "button[type='submit']")
     public WebElement signInButton;
 
+    public void signIn_ErrorMessage() {
+        signIn.click();
+        emailInputBox.sendKeys("johndoe@gmail.com");
+        continueButton.click();
+        passwordInput.sendKeys("abcd1234");
+        signInButton.click();
+    }
+
+
 }
